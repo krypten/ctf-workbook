@@ -1,0 +1,6 @@
+# Local setup
+.DS_Store
+desktop.ini
+
+# Build
+book
