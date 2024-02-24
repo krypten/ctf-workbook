@@ -1,0 +1,15 @@
+[book]
+authors = ["krypten"]
+language = "en"
+multilingual = false
+src = "htb"
+title = "CTF Workbook"
+description = "CTF Workbook: Journey on CTF machines and challnges with 100+ solution"
+
+[output.html]
+site-url = "/ctf-htb/"
+
+[build]
+build-dir = "book"
+create-missing = true
+use-default-preprocessors = true
