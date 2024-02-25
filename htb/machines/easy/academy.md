@@ -137,7 +137,7 @@ Testing this password against all logins, we find that `cry0l1t3:my*************
 
 Getting the flag:
 ```
-ssh cry0l1t3@academy.htn
+ssh cry0l1t3@academy.htb
 my****************!!
 $ cat user.txt
 ~~~~~~~~~~~~FLAG~~~~~~~~~~~~

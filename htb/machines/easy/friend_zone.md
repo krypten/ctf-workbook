@@ -64,7 +64,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 126.91 seconds
 ```
 
-Got following email `info@friendzoneportal.red` from the website.
+Also from enumerating the website, we got following email `info@friendzoneportal.red` from the website.
 
 Based on this and the nmap output, let's check we can get more domains with zone transfer.
 ```
@@ -147,7 +147,7 @@ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
 
-Getting information availabe to us:
+Enumerating the machine and we get the following information available to us in conf file:
 ```
 $ cat mysql_data.conf
 

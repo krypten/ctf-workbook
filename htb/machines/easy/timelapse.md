@@ -73,7 +73,7 @@ SMB         10.129.12.186   445    DC01             Shares          READ
 SMB         10.129.12.186   445    DC01             SYSVOL                          Logon server share
 ```
 
-Enumerating the `Shares` where we have read access. and reading files present in it.
+Enumerating the `Shares` where we have read access and reading files present in it.
 ```
 $ smbclient -N -U 'a' \\\\timelapse.htb\\Shares
 
