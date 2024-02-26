@@ -12,8 +12,10 @@
     - [FriendZone](./machines/easy/friend_zone.md)
     - [Timelapse](./machines/easy/timelapse.md)
     - [Paper](./machines/easy/paper.md)
+    - [Sauna](./machines/easy/sauna.md)
     - [Stocker](./machines/easy/stocker.md)
     - [TwoMillion](./machines/easy/twomillion.md)
+
 - [Medium](./machines/medium/README.md)
     - [SolidState](./machines/medium/solidstate.md)
     - [SecNotes](./machines/medium/secnotes.md)
