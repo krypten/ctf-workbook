@@ -1,6 +1,8 @@
 # Sau
 Easy machine to Hack the Box is a popular platform for testing and improving your penetration testing skills. One of the easy labs available on the platform is the Sau HTB Lab. The Sau lab focuses on Server-Side Request Forgery (SSRF) and public exploit on Maltrail instance. sudo misconfiguration for doing privilege escalation.
 
+<!-- toc -->
+
 ### Reconnaissance
 The first step in any penetration testing process is reconnaissance. We can start by running nmap scan on the target machine to identify open ports and services.
 ```

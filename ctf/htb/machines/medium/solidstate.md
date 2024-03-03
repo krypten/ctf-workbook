@@ -1,6 +1,8 @@
 # SolidState
 SolidState is a medium HTB lab that focuses on mail clients vulnerability, sensitive information disclosure and privilege escalation. In this walkthrough, we will go over the process of exploiting the services and gaining access to the root user.
 
+<!-- toc -->
+
 ### Reconnaissance
 The first step in any penetration testing process is reconnaissance. We can start by running nmap scan on the target machine to identify open ports and services.
 

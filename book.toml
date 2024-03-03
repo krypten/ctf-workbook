@@ -2,14 +2,40 @@
 authors = ["krypten"]
 language = "en"
 multilingual = false
-src = "htb"
+src = "ctf"
 title = "CTF Workbook"
-description = "CTF Workbook: Journey on CTF machines and challnges with 100+ solution"
+description = "CTF Workbook: Journey on CTF machines and challenges with 100+ solution"
 
 [output.html]
-site-url = "/ctf-htb/"
+site-url = "/ctf-workbook/"
+theme = "theme"
+default-theme = "navy"
+cname = "krypten.github.io"
+
+[output.html.print]
+enable = false
+
+[output.html.playground]
+editable = false # allows editing the source code
+copyable = true # include the copy button for copying code snippets
+
+[output.html.search]
+enable = true            # enables the search feature
+limit-results = 30       # maximum number of search results
+boost-title = 2          # ranking boost factor for matches in headers
+boost-hierarchy = 1      # ranking boost factor for matches in page names
+boost-paragraph = 1      # ranking boost factor for matches in text
+expand = true            # partial words will match longer terms
 
 [build]
 build-dir = "book"
 create-missing = true
 use-default-preprocessors = true
+
+[preprocessor.index]
+
+[preprocessor.links]
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]

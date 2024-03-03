@@ -2,6 +2,8 @@
 
 SecNotes is a medium difficulty HTB lab that focuses on weak password change mechanisms, lack of CSRF protection and insufficient validation of user input. In this walkthrough, we will go over the process of exploiting the services and gaining access to the Administrator user.
 
+<!-- toc -->
+
 ### Reconnaissance
 The first step in any penetration testing process is reconnaissance. We can start by running nmap scan on the target machine to identify open ports and services.
 
