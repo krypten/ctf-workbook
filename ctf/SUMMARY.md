@@ -1,6 +1,7 @@
-# HackTheBox (HTB)
+# CTF Workbook
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=page.id&left_color=green&right_color=red)
+# HackTheBox (HTB)
+- [Introduction](./htb/README.md)
 
 # Machines
 

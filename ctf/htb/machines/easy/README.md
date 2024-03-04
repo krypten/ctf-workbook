@@ -1,4 +1,4 @@
-# Easy Machines
+### Easy Machines
 
 - [Return](./return.md)
 - [Forest](./forest.md)
