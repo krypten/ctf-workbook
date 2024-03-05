@@ -18,6 +18,7 @@
     - [Sauna](./htb/machines/easy/sauna.md)
     - [Stocker](./htb/machines/easy/stocker.md)
     - [TwoMillion](./htb/machines/easy/twomillion.md)
+    - [Authority](./htb/machines/easy/authority.md)
 
 - [Medium](./htb/machines/medium/README.md)
     - [SolidState](./htb/machines/medium/solidstate.md)

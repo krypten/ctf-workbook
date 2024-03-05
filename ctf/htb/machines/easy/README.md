@@ -12,3 +12,4 @@
 - [Sauna](./sauna.md)
 - [Stocker](./stocker.md)
 - [TwoMillion](./twomillion.md)
+- [Authority](./authority.md)
