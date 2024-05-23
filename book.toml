@@ -27,6 +27,10 @@ boost-hierarchy = 1      # ranking boost factor for matches in page names
 boost-paragraph = 1      # ranking boost factor for matches in text
 expand = true            # partial words will match longer terms
 
+[output.html.redirect]
+"/machines/easy/academy.html" = "../../htb/machines/easy/academy.html"
+"/machines/easy/paper.html" = "../../htb/machines/easy/paper.html"
+
 [build]
 build-dir = "book"
 create-missing = true
